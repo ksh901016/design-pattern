@@ -10,10 +10,10 @@ public class ElevatorController {
 	}
 	
 	public void gotoFloor(int destination){
-		System.out.println("Elevator [" + id + "] Floor : " + curFloor);
+		System.out.print("Elevator [" + id + "] Floor : " + curFloor);
 		
 		// 현재 층 갱신, 즉 주어진 목적지 층(destination)으로 엘리베이터가 이동함
 		curFloor = destination;
-		System.out.println("==> " + curFloor);
+		System.out.println(" ==> " + curFloor);
 	}
 }
