@@ -8,17 +8,17 @@ public class SchedulerFactory {
 		
 		switch (strategyID){
 			case RESPONSE_TIME : // 대기 시간 최소화 전략
-				scheduler = new ResponseTimeScheduler();
+				scheduler = ResponseTimeScheduler.getInstance();
 				break;
 			case THROUGHPUT : // 처리량 최대화 전략 
-				scheduler = new ThroughputScheduler();
+				scheduler = ThroughputScheduler.getInstance();
 				break;
 			case DYNAMIC : // 오전에는 대기 시간 최소화 전략, 오후에는 처리량 최대화 전략
 				int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 				if(hour < 12){
-					scheduler = new ResponseTimeScheduler();
+					scheduler = ResponseTimeScheduler.getInstance();
 				}else{
-					scheduler = new ThroughputScheduler();
+					scheduler = ThroughputScheduler.getInstance();
 				}
 				break;
 		}

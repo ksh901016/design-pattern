@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="factorymethod.ElevatorController" project="design-pattern" 
     file="/design-pattern/src/main/java/factorymethod/ElevatorController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="180" y="372"/>    
+    <position height="-1" width="-1" x="113" y="270"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,26 +12,98 @@
   </class>  
   <class id="2" language="java" name="factorymethod.ElevatorManager" project="design-pattern" 
     file="/design-pattern/src/main/java/factorymethod/ElevatorManager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="351" y="152"/>    
+    <position height="-1" width="-1" x="250" y="108"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="factorymethod.ThroughputScheduler" project="design-pattern" 
+  <interface id="3" language="java" name="factorymethod.ElevatorScheduler" project="design-pattern" 
+    file="/design-pattern/src/main/java/factorymethod/ElevatorScheduler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="644" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="4" language="java" name="factorymethod.ResponseTimeScheduler" project="design-pattern" 
+    file="/design-pattern/src/main/java/factorymethod/ResponseTimeScheduler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="536" y="430"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="factorymethod.ThroughputScheduler" project="design-pattern" 
     file="/design-pattern/src/main/java/factorymethod/ThroughputScheduler.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="496" y="354"/>    
+    <position height="-1" width="-1" x="809" y="433"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="4">    
+  <class id="6" language="java" name="factorymethod.SchedulerFactory" project="design-pattern" 
+    file="/design-pattern/src/main/java/factorymethod/SchedulerFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="568" y="7"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="7" language="java" name="factorymethod.SchedulingStrategyID" project="design-pattern" 
+    file="/design-pattern/src/main/java/factorymethod/SchedulingStrategyID.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="331" y="265"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <dependency id="8">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="9">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="10">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <realization id="11">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <dependency id="12">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <association id="13">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="5" name="controllers"/>      
-      <multiplicity id="6" minimum="0" maximum="2147483647"/>    
+      <attribute id="14" name="strategyID"/>      
+      <multiplicity id="15" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="16">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <dependency id="17">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <association id="18">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="19" name="controllers"/>      
+      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
