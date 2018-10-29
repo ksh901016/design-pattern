@@ -18,7 +18,7 @@ public class DataSheetView {
 	}
 	
 	private void displayScores(List<Integer> record, int viewCount){
-		System.out.println("List of " + viewCount + " entries: ");
+		System.out.print("List of " + viewCount + " entries: ");
 		for(int i=0; i<viewCount && i <record.size(); i++){
 			System.out.print(record.get(i) + " ");
 		}
