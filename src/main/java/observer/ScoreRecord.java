@@ -3,18 +3,16 @@ package observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScoreRecord {
+public class ScoreRecord extends Subject{
 	// 입력된 점수를 저장하는 클래스
 	private List<Integer> scores = new ArrayList<Integer>(); 
-	private DataSheetView dataSheetView;
-	
-	public void setDataSheetView(DataSheetView dataSheetView){
-		this.dataSheetView = dataSheetView;
-	}
 	
 	public void addScore(int score){
 		scores.add(score);
-		dataSheetView.update(); // scores가 변경됨을 통보
+		
+		// 데이터가 변경되면 Subject 클래스의 notifyObservers 메서드를 호출해
+		// 데이터의 변경을 통보함
+		notifyObservers();
 	}
 	
 	public List<Integer> getScoreRecord(){
